@@ -21,7 +21,9 @@ const registrationSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       uppercase: true,
-      maxlength: 30,
+      minlength: 12,
+      maxlength: 12,
+      match: /^A\d{11}$/,
     },
     email: {
       type: String,
