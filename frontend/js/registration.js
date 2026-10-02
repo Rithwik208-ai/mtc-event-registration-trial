@@ -13,17 +13,17 @@ async function checkRegistrationService() {
     if (response.ok && health.database === "connected") {
       formMessage.dataset.state = "info";
       formMessage.textContent =
-        "SYSTEM STATUS: DATABASE CONNECTED — TEST MODE. Use dummy data.";
+        "SYSTEM STATUS: REGISTRATION SERVICE READY.";
     } else {
       formMessage.dataset.state = "info";
       formMessage.textContent =
-        "SYSTEM STATUS: REGISTRATION API OFFLINE — TEST MODE. Submissions are not saved.";
+        "SYSTEM STATUS: REGISTRATION SERVICE OFFLINE. Submissions are not saved.";
     }
   } catch {
     if (!registrationForm.hasAttribute("aria-busy")) {
       formMessage.dataset.state = "info";
       formMessage.textContent =
-        "SYSTEM STATUS: REGISTRATION API OFFLINE — TEST MODE. Submissions are not saved.";
+        "SYSTEM STATUS: REGISTRATION SERVICE OFFLINE. Submissions are not saved.";
     }
   }
 }
