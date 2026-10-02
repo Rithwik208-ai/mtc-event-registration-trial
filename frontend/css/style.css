@@ -614,7 +614,11 @@ footer p {
   }
 
   .binary-background {
-    opacity: 0.13;
+    opacity: 0.3;
+  }
+
+  .binary-stream {
+    font-size: 14px;
   }
 }
 
