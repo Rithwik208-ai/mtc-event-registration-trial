@@ -3,7 +3,7 @@ services:
     name: mtc-event-registration
     runtime: node
     plan: free
-  rootDir: .
+    rootDir: .
     buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
