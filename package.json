@@ -1,0 +1,14 @@
+{
+  "name": "mtc-event-registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trial registration website for an MTC event",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
