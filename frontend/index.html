@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Register for an MTC student event.">
+    <title>MTC Event Registration</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="MTC event registration home">MTC</a>
+      <nav aria-label="Main navigation">
+        <a href="#registration">Register</a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">Student event</p>
+        <h1 id="page-title">Join the MTC event</h1>
+        <p>Complete the form below to register. Fields marked with an asterisk are required.</p>
+      </section>
+      <section class="form-card" id="registration" aria-labelledby="form-title">
+        <h2 id="form-title">Your details</h2>
+        <form id="registration-form">
+          <div class="form-grid">
+            <label>Full name <span aria-hidden="true">*</span><input name="fullName" autocomplete="name" required maxlength="100"></label>
+            <label>Enrollment / student ID <span aria-hidden="true">*</span><input name="studentId" autocomplete="off" required maxlength="30"></label>
+            <label>Email address <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+            <label>Phone number <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required maxlength="20"></label>
+            <label>Course <span aria-hidden="true">*</span><input name="course" required maxlength="100"></label>
+            <label>Semester <span aria-hidden="true">*</span><select name="semester" required><option value="">Select semester</option><option value="1">Semester 1</option><option value="2">Semester 2</option><option value="3">Semester 3</option><option value="4">Semester 4</option><option value="5">Semester 5</option><option value="6">Semester 6</option><option value="7">Semester 7</option><option value="8">Semester 8</option></select></label>
+          </div>
+          <button type="submit">Submit registration</button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer><p>MTC student event registration · Trial version</p></footer>
+    <script src="/js/registration.js" defer></script>
+  </body>
+</html>
