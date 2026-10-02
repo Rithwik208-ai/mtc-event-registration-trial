@@ -9,7 +9,7 @@ const { requireAdmin, requireAdminCsrf } = require("../middleware/requireAdmin")
 const router = express.Router();
 const publicRegistrationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 10,
+  limit: 150,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: "Too many registration attempts. Please try again later." },
@@ -86,6 +86,8 @@ function validateRegistration(input, { partial = false } = {}) {
       errors.push(`${field} is required.`);
     } else if (value.length > maximumLength) {
       errors.push(`${field} must be ${maximumLength} characters or fewer.`);
+    } else if (field === "studentId" && !/^A\d{11}$/i.test(value)) {
+      errors.push("studentId must start with A and be followed by exactly 11 digits.");
     } else if (field === "email" && !emailPattern.test(value)) {
       errors.push("email must be a valid email address.");
     } else if (field === "phone" && !phonePattern.test(value)) {
