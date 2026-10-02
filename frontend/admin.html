@@ -126,7 +126,7 @@
       <h2 id="edit-title">&gt; EDIT REGISTRATION</h2>
       <form id="edit-form" class="admin-edit-form">
         <label>FULL NAME<input name="fullName" required maxlength="100"></label>
-        <label>STUDENT ID<input name="studentId" required maxlength="30"></label>
+        <label>STUDENT ID<input name="studentId" required minlength="12" maxlength="12" pattern="[Aa][0-9]{11}" title="Enter A followed by exactly 11 digits."></label>
         <label>EMAIL<input name="email" type="email" required maxlength="254"></label>
         <label>PHONE<input name="phone" type="tel" required maxlength="20"></label>
         <label>COURSE<input name="course" required maxlength="100"></label>

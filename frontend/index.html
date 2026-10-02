@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Register for an MTC student event.">
-    <title>MTC Event Registration</title>
+    <meta name="description" content="Register for the MTC TECH TREASURE HUNT.">
+    <title>TECH TREASURE HUNT | MTC</title>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
@@ -22,27 +22,28 @@
       <div class="header-copy">
         <a class="brand" href="/" aria-label="MTC event registration home">
           <span class="brand-mark">MTC</span>
-          <span class="brand-title">EVENT REGISTRATION</span>
+          <span class="brand-title">TECH TREASURE HUNT</span>
         </a>
         <p class="hero-subtitle">&gt; INITIALIZING SECURE REGISTRATION PROTOCOL...</p>
       </div>
       <nav aria-label="Main navigation">
         <a href="#registration">&gt; REGISTER</a>
+        <a href="/admin">&gt; ADMIN LOGIN</a>
       </nav>
     </header>
 
     <main>
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">MTC // STUDENT NETWORK</p>
-        <h1 id="page-title">YOUR NEXT<br><span>EVENT AWAITS.</span></h1>
-        <p class="intro-copy">Connect to the event network. Enter your participant details to continue.</p>
-        <p class="intro-meta"><span aria-hidden="true"></span> REGISTRATION PORTAL <span class="meta-divider">//</span> TEST MODE</p>
+        <h1 id="page-title">TECH TREASURE<br><span>HUNT.</span></h1>
+        <p class="intro-copy">Register for the MTC TECH TREASURE HUNT. Enter your participant details to continue.</p>
+        <p class="intro-meta"><span aria-hidden="true"></span> REGISTRATION PORTAL <span class="meta-divider">//</span> OPEN</p>
       </section>
 
       <section class="form-card" id="registration" aria-labelledby="form-title">
         <div class="terminal-heading">
           <span class="system-indicator" aria-hidden="true"></span>
-          <p>REGISTRATION TERMINAL <span>// TEST MODE</span></p>
+          <p>REGISTRATION TERMINAL <span>// OPEN</span></p>
         </div>
         <h2 id="form-title">&gt; ACCESS REGISTRATION SYSTEM<span class="cursor">_</span></h2>
         <p class="form-instructions">&gt; ENTER PARTICIPANT DETAILS BELOW...</p>
@@ -54,7 +55,7 @@
             </label>
             <label>
               <span class="field-label">ENROLLMENT / STUDENT ID <span aria-hidden="true">*</span></span>
-              <input name="studentId" autocomplete="off" required maxlength="30" placeholder="Enter student ID">
+              <input name="studentId" autocomplete="off" required minlength="12" maxlength="12" pattern="[Aa][0-9]{11}" title="Enter A followed by exactly 11 digits." placeholder="A12345678901">
             </label>
             <label>
               <span class="field-label">EMAIL ADDRESS <span aria-hidden="true">*</span></span>
@@ -84,13 +85,13 @@
             </label>
           </div>
           <button type="submit"><span aria-hidden="true">&gt; </span>EXECUTE REGISTRATION</button>
-          <p class="form-message" id="form-message" data-state="info" role="status" aria-live="polite">SYSTEM STATUS: CHECKING DATABASE CONNECTION — TEST MODE.</p>
+          <p class="form-message" id="form-message" data-state="info" role="status" aria-live="polite">SYSTEM STATUS: CHECKING REGISTRATION SERVICE.</p>
         </form>
       </section>
     </main>
 
     <footer>
-      <p>MTC student event registration · Trial version</p>
+      <p>MTC TECH TREASURE HUNT registration</p>
     </footer>
     <script src="/js/registration.js" defer></script>
   </body>
