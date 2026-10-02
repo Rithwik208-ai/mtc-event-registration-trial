@@ -8,35 +8,90 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
+    <div class="binary-background" aria-hidden="true">
+      <span class="binary-stream stream-one">0<br>1<br>0<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>1<br>0</span>
+      <span class="binary-stream stream-two">1<br>0<br>1<br>1<br>0<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>0<br>1</span>
+      <span class="binary-stream stream-three">0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>1<br>0<br>0<br>1<br>0<br>1</span>
+      <span class="binary-stream stream-four">1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>1<br>0<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>1<br>0<br>1<br>0</span>
+      <span class="binary-stream stream-five">0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1</span>
+      <span class="binary-stream stream-six">1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>1<br>0</span>
+      <span class="binary-stream stream-seven">0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1</span>
+    </div>
+
     <header class="site-header">
-      <a class="brand" href="/" aria-label="MTC event registration home">MTC</a>
+      <div class="header-copy">
+        <a class="brand" href="/" aria-label="MTC event registration home">
+          <span class="brand-mark">MTC</span>
+          <span class="brand-title">EVENT REGISTRATION</span>
+        </a>
+        <p class="hero-subtitle">&gt; INITIALIZING SECURE REGISTRATION PROTOCOL...</p>
+      </div>
       <nav aria-label="Main navigation">
-        <a href="#registration">Register</a>
+        <a href="#registration">&gt; REGISTER</a>
       </nav>
     </header>
+
     <main>
       <section class="intro" aria-labelledby="page-title">
-        <p class="eyebrow">Student event</p>
-        <h1 id="page-title">Join the MTC event</h1>
-        <p>Complete the form below to register. Fields marked with an asterisk are required.</p>
+        <p class="eyebrow">MTC // STUDENT NETWORK</p>
+        <h1 id="page-title">YOUR NEXT<br><span>EVENT AWAITS.</span></h1>
+        <p class="intro-copy">Connect to the event network. Enter your participant details to continue.</p>
+        <p class="intro-meta"><span aria-hidden="true"></span> REGISTRATION PORTAL <span class="meta-divider">//</span> TEST MODE</p>
       </section>
+
       <section class="form-card" id="registration" aria-labelledby="form-title">
-        <h2 id="form-title">Your details</h2>
+        <div class="terminal-heading">
+          <span class="system-indicator" aria-hidden="true"></span>
+          <p>REGISTRATION TERMINAL <span>// TEST MODE</span></p>
+        </div>
+        <h2 id="form-title">&gt; ACCESS REGISTRATION SYSTEM<span class="cursor">_</span></h2>
+        <p class="form-instructions">&gt; ENTER PARTICIPANT DETAILS BELOW...</p>
         <form id="registration-form">
           <div class="form-grid">
-            <label>Full name <span aria-hidden="true">*</span><input name="fullName" autocomplete="name" required maxlength="100"></label>
-            <label>Enrollment / student ID <span aria-hidden="true">*</span><input name="studentId" autocomplete="off" required maxlength="30"></label>
-            <label>Email address <span aria-hidden="true">*</span><input name="email" type="email" autocomplete="email" required maxlength="254"></label>
-            <label>Phone number <span aria-hidden="true">*</span><input name="phone" type="tel" autocomplete="tel" required maxlength="20"></label>
-            <label>Course <span aria-hidden="true">*</span><input name="course" required maxlength="100"></label>
-            <label>Semester <span aria-hidden="true">*</span><select name="semester" required><option value="">Select semester</option><option value="1">Semester 1</option><option value="2">Semester 2</option><option value="3">Semester 3</option><option value="4">Semester 4</option><option value="5">Semester 5</option><option value="6">Semester 6</option><option value="7">Semester 7</option><option value="8">Semester 8</option></select></label>
+            <label>
+              <span class="field-label">FULL NAME <span aria-hidden="true">*</span></span>
+              <input name="fullName" autocomplete="name" required maxlength="100" placeholder="Enter full name">
+            </label>
+            <label>
+              <span class="field-label">ENROLLMENT / STUDENT ID <span aria-hidden="true">*</span></span>
+              <input name="studentId" autocomplete="off" required maxlength="30" placeholder="Enter student ID">
+            </label>
+            <label>
+              <span class="field-label">EMAIL ADDRESS <span aria-hidden="true">*</span></span>
+              <input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="name@example.com">
+            </label>
+            <label>
+              <span class="field-label">PHONE NUMBER <span aria-hidden="true">*</span></span>
+              <input name="phone" type="tel" autocomplete="tel" required maxlength="20" pattern="\+?[0-9][0-9\s\p{P}]{6,19}" title="Enter a phone number using digits and common separators.">
+            </label>
+            <label>
+              <span class="field-label">COURSE <span aria-hidden="true">*</span></span>
+              <input name="course" required maxlength="100" placeholder="Enter course">
+            </label>
+            <label>
+              <span class="field-label">SEMESTER <span aria-hidden="true">*</span></span>
+              <select name="semester" required>
+                <option value="">Select semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+              </select>
+            </label>
           </div>
-          <button type="submit">Submit registration</button>
-          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+          <button type="submit"><span aria-hidden="true">&gt; </span>EXECUTE REGISTRATION</button>
+          <p class="form-message" id="form-message" data-state="info" role="status" aria-live="polite">SYSTEM STATUS: CHECKING DATABASE CONNECTION — TEST MODE.</p>
         </form>
       </section>
     </main>
-    <footer><p>MTC student event registration · Trial version</p></footer>
+
+    <footer>
+      <p>MTC student event registration · Trial version</p>
+    </footer>
     <script src="/js/registration.js" defer></script>
   </body>
 </html>

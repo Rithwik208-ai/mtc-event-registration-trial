@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Authorized MTC event registration administration.">
+    <title>MTC Admin Terminal</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body class="admin-page">
+    <div class="binary-background" aria-hidden="true">
+      <span class="binary-stream stream-one">0<br>1<br>0<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>1<br>0<br>0<br>1<br>0<br>1</span>
+      <span class="binary-stream stream-four">1<br>0<br>0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>1<br>1<br>0<br>0<br>1<br>0</span>
+      <span class="binary-stream stream-seven">0<br>1<br>0<br>1<br>1<br>0<br>1<br>0<br>0<br>1<br>0<br>1<br>0<br>0<br>1<br>1</span>
+    </div>
+
+    <header class="site-header">
+      <div class="header-copy">
+        <a class="brand" href="/" aria-label="MTC registration home">
+          <span class="brand-mark">MTC</span>
+          <span class="brand-title">ADMIN TERMINAL</span>
+        </a>
+        <p class="hero-subtitle">&gt; AUTHORIZED STAFF ACCESS ONLY</p>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="/">&gt; PUBLIC REGISTRATION</a>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <section class="form-card admin-login-card" id="login-panel" aria-labelledby="login-title">
+        <div class="terminal-heading">
+          <span class="system-indicator" aria-hidden="true"></span>
+          <p>SECURE ADMIN SESSION <span>// RESTRICTED</span></p>
+        </div>
+        <h1 id="login-title">&gt; ADMINISTRATOR LOGIN<span class="cursor">_</span></h1>
+        <p class="form-instructions">Enter the administrator access key configured in the private project environment.</p>
+        <form id="login-form">
+          <label for="access-key">ADMIN ACCESS KEY</label>
+          <input id="access-key" name="accessKey" type="password" autocomplete="current-password" required>
+          <button type="submit" id="login-button">&gt; AUTHENTICATE</button>
+          <p class="form-message" id="login-message" data-state="info" role="status" aria-live="polite">SESSION STATUS: AUTHENTICATION REQUIRED.</p>
+        </form>
+      </section>
+
+      <section class="admin-dashboard" id="dashboard" hidden aria-labelledby="dashboard-title">
+        <div class="admin-title-row">
+          <div>
+            <p class="eyebrow">MTC // STAFF OPERATIONS</p>
+            <h1 id="dashboard-title">REGISTRATION<br><span>CONTROL PANEL</span></h1>
+          </div>
+          <button class="secondary-button" id="logout-button" type="button">&gt; LOG OUT</button>
+        </div>
+
+        <div class="admin-stats" aria-label="Registration statistics">
+          <article class="stat-card"><span>TOTAL REGISTRATIONS</span><strong id="total-count">—</strong></article>
+          <article class="stat-card"><span>LAST 30 DAYS</span><strong id="recent-count">—</strong></article>
+          <article class="stat-card"><span>COURSES REPRESENTED</span><strong id="course-count">—</strong></article>
+        </div>
+
+        <section class="form-card admin-list-card" aria-label="Registration management">
+          <div class="terminal-heading">
+            <span class="system-indicator" aria-hidden="true"></span>
+            <p>REGISTRATION DATABASE <span>// LIVE</span></p>
+          </div>
+          <div class="admin-toolbar">
+            <label class="toolbar-field search-field">
+              <span>SEARCH REGISTRATIONS</span>
+              <input id="search-input" type="search" placeholder="Name, ID, email, phone, course...">
+            </label>
+            <label class="toolbar-field">
+              <span>COURSE</span>
+              <select id="course-filter"><option value="">All courses</option></select>
+            </label>
+            <label class="toolbar-field">
+              <span>SEMESTER</span>
+              <select id="semester-filter"><option value="">All semesters</option></select>
+            </label>
+            <label class="toolbar-field">
+              <span>SORT BY</span>
+              <select id="sort-select">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="name">Name A–Z</option>
+                <option value="studentId">Student ID</option>
+                <option value="course">Course</option>
+              </select>
+            </label>
+          </div>
+          <div class="admin-actions">
+            <button class="secondary-button" id="refresh-button" type="button">&gt; REFRESH</button>
+            <a class="admin-button-link" href="/api/registrations/export.json" download>&gt; EXPORT JSON</a>
+            <a class="admin-button-link" href="/api/registrations/export.xlsx" download>&gt; EXPORT EXCEL</a>
+          </div>
+          <p class="form-message" id="dashboard-message" data-state="info" role="status" aria-live="polite">Loading registrations...</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">REFERENCE</th>
+                  <th scope="col">FULL NAME</th>
+                  <th scope="col">STUDENT ID</th>
+                  <th scope="col">EMAIL</th>
+                  <th scope="col">COURSE</th>
+                  <th scope="col">SEM.</th>
+                  <th scope="col">REGISTERED</th>
+                  <th scope="col">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody id="registration-rows"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <dialog class="admin-dialog" id="details-dialog" aria-labelledby="details-title">
+      <div class="terminal-heading"><span class="system-indicator" aria-hidden="true"></span><p>REGISTRATION RECORD</p></div>
+      <h2 id="details-title">&gt; PARTICIPANT DETAILS</h2>
+      <dl class="details-grid" id="details-content"></dl>
+      <button class="secondary-button" type="button" data-close-dialog="details-dialog">CLOSE</button>
+    </dialog>
+
+    <dialog class="admin-dialog" id="edit-dialog" aria-labelledby="edit-title">
+      <div class="terminal-heading"><span class="system-indicator" aria-hidden="true"></span><p>UPDATE RECORD</p></div>
+      <h2 id="edit-title">&gt; EDIT REGISTRATION</h2>
+      <form id="edit-form" class="admin-edit-form">
+        <label>FULL NAME<input name="fullName" required maxlength="100"></label>
+        <label>STUDENT ID<input name="studentId" required maxlength="30"></label>
+        <label>EMAIL<input name="email" type="email" required maxlength="254"></label>
+        <label>PHONE<input name="phone" type="tel" required maxlength="20"></label>
+        <label>COURSE<input name="course" required maxlength="100"></label>
+        <label>SEMESTER
+          <select name="semester" required>
+            <option value="1">Semester 1</option><option value="2">Semester 2</option>
+            <option value="3">Semester 3</option><option value="4">Semester 4</option>
+            <option value="5">Semester 5</option><option value="6">Semester 6</option>
+            <option value="7">Semester 7</option><option value="8">Semester 8</option>
+          </select>
+        </label>
+        <label class="full-width-field">EVENT / ROUND (OPTIONAL)<input name="eventRound" maxlength="100"></label>
+        <p class="form-message full-width-field" id="edit-message" data-state="info" role="status" aria-live="polite"></p>
+        <div class="dialog-actions full-width-field">
+          <button type="submit" id="save-edit-button">&gt; SAVE CHANGES</button>
+          <button class="secondary-button" type="button" data-close-dialog="edit-dialog">CANCEL</button>
+        </div>
+      </form>
+    </dialog>
+
+    <footer><p>MTC student event registration · Authorized administration</p></footer>
+    <script src="/js/admin.js" defer></script>
+  </body>
+</html>
