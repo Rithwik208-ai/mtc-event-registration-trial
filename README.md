@@ -1,7 +1,9 @@
-# MTC Event Registration (Trial)
+# MTC TECH TREASURE HUNT Registration
 
-This trial app stores event registrations in MongoDB Atlas. Use dummy data
-during testing; do not enter sensitive personal information.
+This app stores MTC event registrations in MongoDB Atlas. Do not collect
+passwords, government identifiers, financial details, or other unnecessary
+sensitive information. Obtain MTC approval and provide participants with an
+appropriate privacy and retention notice before collecting real student data.
 
 ## Run locally
 
@@ -42,8 +44,10 @@ Git. `.env.example` contains placeholders only. Never commit actual credentials.
 ## Registration and administration
 
 - `POST /api/registrations` is the public registration endpoint. It validates
-  input, normalizes email and student ID, rejects duplicates, and returns a
-  reference ID.
+  input, requires an enrollment/student ID consisting of `A` followed by
+  exactly 11 digits, normalizes email and student ID, rejects duplicates, and
+  returns a reference ID. The public endpoint allows up to 150 attempts per
+  source IP per 15 minutes to accommodate a large event on shared campus Wi-Fi.
 - `GET /api/registrations` and `GET /api/registrations/:id` require an
   authenticated administrator session.
 - `PUT /api/registrations/:id` and `DELETE /api/registrations/:id` require an
@@ -78,20 +82,20 @@ uniqueness is enforced by a MongoDB unique index, including concurrent
 submissions. Admin routes do not accept the administrator key directly after
 login; they require the server-side session.
 
-## Deployment on Render
+## Deployment on Railway
 
-The included `render.yaml` defines the Node web service, `npm ci` build, and
-`npm start` command. Before creating a deployment:
+The Railway service runs the Node application using `npm start`; Railway sets
+the `PORT` environment variable. The `render.yaml` file is for Render only and
+is not used by Railway. Configure `MONGODB_URI`, `ADMIN_API_KEY`,
+`SESSION_SECRET`, and `NODE_ENV=production` as private Railway service
+variables.
 
-1. Push the project to the intended GitHub repository.
-2. Create a Render Blueprint and connect that repository. If asked for the
-   Blueprint path, use `render.yaml` at the repository root.
-3. Add `MONGODB_URI`, `ADMIN_API_KEY`, and `SESSION_SECRET` as private Render
-   environment variables. Do not commit secrets or set the laptop as a
-   production host.
-4. Ensure Atlas Network Access permits the deployed service to connect. Use a
-   suitable restricted network policy for production.
-5. After deployment, visit the assigned HTTPS URL and check `/api/health`.
+For the current free-tier Railway deployment, Atlas Network Access permits
+connections from any IPv4 address. Database authentication is still required,
+but this broad network rule is a security tradeoff. For production handling of
+real student data, use a hosting plan with static outbound IP support and
+restrict the Atlas IP access list accordingly. Obtain MTC approval and publish
+an appropriate privacy and retention notice before collecting participant data.
 
 The admin session cookie is configured for HTTPS in production and sessions
 persist in Atlas. Review privacy, access control, backups, and retention before
